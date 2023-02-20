@@ -7,6 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      function getComputerChoice() {
+        const computerOptions = ["Piatra", "Foaie", "Hartie"];
+        const computerChoose =
+          computerOptions[Math.floor(Math.random() * computerOptions.length)];
+        return computerChoose;
+      }
+
+      console.log(getComputerChoice());
+    </script>
   </body>
 </html>
