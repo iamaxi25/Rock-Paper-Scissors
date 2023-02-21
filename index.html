@@ -9,13 +9,45 @@
   <body>
     <script>
       function getComputerChoice() {
-        const computerOptions = ["Piatra", "Foaie", "Hartie"];
-        const computerChoose =
-          computerOptions[Math.floor(Math.random() * computerOptions.length)];
-        return computerChoose;
+        const Options = ["Piatra", "Hartie", "Foarfeca"];
+        computerGuess = Options[Math.floor(Math.random() * Options.length)];
+        return computerGuess;
       }
 
-      console.log(getComputerChoice());
+      function playRound(playerSelection, computerSelection) {
+        computerSelection = getComputerChoice();
+        console.log("Player: " + playerSelection);
+        console.log("Computer: " + computerSelection);
+
+        if (playerSelection === computerSelection) {
+          playerscore = playerscorescore;
+          computerscore = computerscore;
+          return "Tie! No one wins.";
+        } else if (
+          playerSelection === "Piatra" &&
+          computerSelection === "Hartie"
+        ) {
+          return "Computer Won! Hartie beats Piatra";
+        } else if (
+          playerSelection === "Hartie" &&
+          computerSelection === "Foarfeca"
+        ) {
+          return "Computer Won! Foarfeca beats Hartie";
+        } else if (
+          playerSelection === "Foarfeca" &&
+          computerSelection === "Piatra"
+        ) {
+          return "Computer won! Piatra beats Foarfeca";
+        } else {
+          return (
+            "Player Won! " + playerSelection + " beats " + computerSelection
+          );
+        }
+      }
+
+      for (i = 0; i < 5; i++) {
+        console.log(playRound("Piatra"));
+      }
     </script>
   </body>
 </html>
