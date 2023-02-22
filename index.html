@@ -8,6 +8,8 @@
   </head>
   <body>
     <script>
+      let roundCounter = 0;
+
       function getComputerChoice() {
         const Options = ["Piatra", "Hartie", "Foarfeca"];
         computerGuess = Options[Math.floor(Math.random() * Options.length)];
@@ -15,13 +17,13 @@
       }
 
       function playRound(playerSelection, computerSelection) {
+        roundCounter++;
         computerSelection = getComputerChoice();
+        console.log("Round " + roundCounter);
         console.log("Player: " + playerSelection);
         console.log("Computer: " + computerSelection);
 
         if (playerSelection === computerSelection) {
-          playerscore = playerscorescore;
-          computerscore = computerscore;
           return "Tie! No one wins.";
         } else if (
           playerSelection === "Piatra" &&
